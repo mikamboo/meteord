@@ -21,22 +21,32 @@ No need to install metor, Docket is enough !
 ```
 # Create and start container
 cd /path/to/meteor/app
-docker run -it --name myapp -p 3000:3000 -v $(pwd):/app mikamboo/meteordev
+docker run -it --name myapp -p 3000:3000 -v $(pwd):/app mikamboo/meteord:devbox
 
 # Start already created container
 docker start -ai myapp
+
+meteor start
 ```
 
 
 #### 0.2 With Docker Compose
 
 docker-compose.yml
-~~~shell
+```shell
 yourapp:
-  image: mikamboo/meteordev
+  image: mikamboo/meteord:devbox
   ports:
    - "3000:3000"
-~~~
+  volumes:
+   - .:/app
+```
+
+On startup the container is open `bash` prompt, then you can start meteor with : 
+
+```
+meteor start
+```
 
 ### 1. Build a Docker image for your app
 
@@ -46,26 +56,26 @@ For that, you can use `meteorhacks/meteord:onbuild` as your base image. Magicall
 
 Add following `Dockerfile` into the root of your app:
 
-~~~shell
+```shell
 FROM meteorhacks/meteord:onbuild
-~~~
+```
 
 Then you can build the docker image with:
 
-~~~shell
+```shell
 docker build -t yourname/app .
-~~~
+```
 
 Then you can run your meteor image with
 
-~~~shell
+```shell
 docker run -d \
     -e ROOT_URL=http://yourapp.com \
     -e MONGO_URL=mongodb://url \
     -e MONGO_OPLOG_URL=mongodb://oplog_url \
     -p 8080:80 \
     yourname/app
-~~~
+```
 Then you can access your app from the port 8080 of the host system.
 
 #### Stop downloading Meteor each and every time (mostly in development)
