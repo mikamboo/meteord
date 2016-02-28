@@ -1,12 +1,40 @@
-[![Circle CI](https://circleci.com/gh/meteorhacks/meteord/tree/master.svg?style=svg)](https://circleci.com/gh/meteorhacks/meteord/tree/master)
+This fork of meteorhacks/meteord add a Docker devbox image for local dev.
+
 ## MeteorD - Docker Runtime for Meteor Apps
 
-There are two main ways you can use Docker with Meteor apps. They are:
+There are three main ways you can use Docker with Meteor apps. They are:
 
+0. Developping meteor apps with Docker
 1. Build a Docker image for your app
 2. Running a Meteor bundle with Docker
 
-**MeteorD supports these two ways. Let's see how to use MeteorD**
+
+**How to use meteordev**
+
+### 0. Developing meteor apps with meteordev Docker image
+
+meteordev Docker image is usefull for developper while coding meteor app on local.
+No need to install metor, Docket is enough !
+
+#### 0.1 With Docker engine
+
+```
+cd /path/to/meteor/app
+docker run -it --name myapp -p 3000:3000 -v $(pwd):/app mikamboo/meteordev
+
+dockeer start -ai myapp
+```
+
+
+#### 0.2 With Docker Compose
+
+docker-compose.yml
+~~~shell
+yourapp:
+  image: mikamboo/meteordev
+  ports:
+   - "3000:3000"
+~~~
 
 ### 1. Build a Docker image for your app
 
