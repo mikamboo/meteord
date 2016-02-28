@@ -19,10 +19,12 @@ No need to install metor, Docket is enough !
 #### 0.1 With Docker engine
 
 ```
+# Create and start container
 cd /path/to/meteor/app
 docker run -it --name myapp -p 3000:3000 -v $(pwd):/app mikamboo/meteordev
 
-dockeer start -ai myapp
+# Start already created container
+docker start -ai myapp
 ```
 
 
