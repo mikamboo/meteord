@@ -1,4 +1,4 @@
-This fork of meteorhacks/meteord add a Docker devbox image for local dev.
+This fork of [meteorhacks/meteord](https://github.com/meteorhacks/meteord) add a Docker devbox image for local dev.
 
 ## MeteorD - Docker Runtime for Meteor Apps
 
