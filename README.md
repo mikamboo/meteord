@@ -12,8 +12,8 @@ There are three main ways you can use Docker with Meteor apps. They are:
 
 ### Developing meteor apps with meteord:devbox Docker image
 
-meteordev Docker image is usefull for developper while coding meteor app on local.
-No need to install metor, Docket is enough !
+__meteord:devbox__ Docker image is usefull for developper while coding meteor app on local.
+No need to install metor, Docker is enough !
 
 #### With Docker engine
 
@@ -43,7 +43,7 @@ yourapp:
 On startup the container is open `bash` prompt, then you can start meteor with : 
 
 ```
-meteor start
+meteor
 ```
 
 ### 2. Build a Docker image for your app
