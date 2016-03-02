@@ -8,15 +8,14 @@ There are three main ways you can use Docker with Meteor apps. They are:
 1. Build a Docker image for your app
 2. Running a Meteor bundle with Docker
 
+**1. How to use meteord:devbox ?**
 
-**How to use meteordev**
-
-### 0. Developing meteor apps with meteordev Docker image
+### Developing meteor apps with meteord:devbox Docker image
 
 meteordev Docker image is usefull for developper while coding meteor app on local.
 No need to install metor, Docket is enough !
 
-#### 0.1 With Docker engine
+#### With Docker engine
 
 ```
 # Create and start container
@@ -29,8 +28,7 @@ docker start -ai myapp
 meteor start
 ```
 
-
-#### 0.2 With Docker Compose
+#### With Docker Compose
 
 docker-compose.yml
 ```shell
@@ -48,7 +46,7 @@ On startup the container is open `bash` prompt, then you can start meteor with :
 meteor start
 ```
 
-### 1. Build a Docker image for your app
+### 2. Build a Docker image for your app
 
 With this method, your app will be converted into a Docker image. Then you can simply run that image.  
 
@@ -84,11 +82,11 @@ So, with the above method, MeteorD will download and install Meteor each and eve
 
 > WARNING: Don't use `meteorhacks/meteord:devbuild` for your final build. If you used it, your image will carry the Meteor distribution as well. As a result of that, you'll end up with an image with ~700 MB.
 
-### 2. Running a Meteor bundle with Docker
+### 3. Running a Meteor bundle with Docker
 
 For this you can directly use the MeteorD to run your meteor bundle. MeteorD can accept your bundle either from a local mount or from the web. Let's see:
 
-#### 2.1 From a Local Mount
+#### 3.1 From a Local Mount
 
 ~~~shell
 docker run -d \
@@ -106,7 +104,7 @@ With this method, MeteorD looks for the tarball version of the meteor bundle. So
 meteor build --architecture=os.linux.x86_64 ./
 ~~~
 
-#### 2.1 From the Web
+#### 3.2 From the Web
 
 You can also simply give URL of the tarball with `BUNDLE_URL` environment variable. Then MeteorD will fetch the bundle and run it. This is how to do it:
 
@@ -120,7 +118,7 @@ docker run -d \
     meteorhacks/meteord:base
 ~~~
 
-#### 2.2 With Docker Compose
+#### 3.3 With Docker Compose
 
 docker-compose.yml
 ~~~shell
